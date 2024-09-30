@@ -1,0 +1,12 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /(.*\.(gif|png|jpg|css|js|svg|json|ico|txt))
+  static_files: \1
+  upload: .*(.*\.(gif|png|jpg|css|js|svg|json|ico|txt))
+
+- url: /.*
+  static_files: index.html
+  upload: index.html
