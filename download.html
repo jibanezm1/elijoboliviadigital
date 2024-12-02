@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoElijoDigital</title>
+    <script>
+        function redirectBasedOnDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                // Redirigir a la descarga del APK para Android
+                window.location.href = "https://yoelijobolivia.sfo3.digitaloceanspaces.com/app-release.apk";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // Redirigir a la App Store para iOS
+                window.location.href = "https://apps.apple.com/cl/app/yoelijodigital/id6720703130";
+            } else {
+                // Mostrar un mensaje si no es Android ni iOS
+                document.getElementById("message").textContent = "Esta página está diseñada para dispositivos móviles.";
+            }
+        }
+    </script>
+</head>
+<body onload="redirectBasedOnDevice()">
+    <h1>Redirigiendo...</h1>
+    <p id="message"></p>
+</body>
+</html>
